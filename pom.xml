@@ -69,7 +69,7 @@
 		<dependency>
 			<groupId>org.alfresco.enterprise</groupId>
 			<artifactId>alfresco-repository</artifactId>
-		</dependency>
+		</dependency>    
 		<dependency>
 			<groupId>org.alfresco.enterprise</groupId>
 			<artifactId>alfresco-remote-api</artifactId>
