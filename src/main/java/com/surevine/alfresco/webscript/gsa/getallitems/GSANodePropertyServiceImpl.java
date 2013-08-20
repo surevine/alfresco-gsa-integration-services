@@ -1,3 +1,24 @@
+/*
+ * Copyright (C) 2008-2010 Surevine Limited.
+ *   
+ * Although intended for deployment and use alongside Alfresco this module should
+ * be considered 'Not a Contribution' as defined in Alfresco'sstandard contribution agreement, see
+ * http://www.alfresco.org/resource/AlfrescoContributionAgreementv2.pdf
+ * 
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; either version 2
+ * of the License, or (at your option) any later version.
+ * 
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+*/
 package com.surevine.alfresco.webscript.gsa.getallitems;
 
 import java.io.BufferedInputStream;
@@ -34,7 +55,7 @@ import com.surevine.alfresco.webscript.gsa.getallitems.NodeRefTypeResolver.NodeR
 public class GSANodePropertyServiceImpl implements GSANodePropertyService {
 	
 	/**
-	 * Placeholder name used by some organisations.
+	 * Placeholder name used for anonymity purposes.
 	 */
 	private static final String OFFICER = "officer";
 
@@ -42,7 +63,6 @@ public class GSANodePropertyServiceImpl implements GSANodePropertyService {
 	private ContentService _contentService;
 	private PersonService _personService;
 	
-	//TODO - move this into EnhancedSecurityModel.java once we've using an SDK we built from our branch
 	private static final String NAMESPACE_SV="http://www.alfresco.org/model/enhancedSecurity/0.3";
 	private static final QName NOD_QN = QName.createQName(NAMESPACE_SV, "nod");
 	private static final QName PM_QN = QName.createQName(NAMESPACE_SV, "pm");
@@ -270,8 +290,7 @@ public class GSANodePropertyServiceImpl implements GSANodePropertyService {
 	
 	private String getUnknownItemURL(NodeRef nodeRef)
 	{
-		//TODO: we can't do this without breaking through the firewall - share could proxy into alfresco to do this but this is a big bit of work
-		//so let's leave it until we know whether or not we need it
+		//This isn't implemented yet.  This is intentionally just a hook for a subclass to use if needed
 		throw new GSAProcessingException("The type of "+nodeRef.toString()+" could not be determined", null, 90211);
 	}
 	
@@ -305,7 +324,7 @@ public class GSANodePropertyServiceImpl implements GSANodePropertyService {
 
 	/**
 	 * If the item has a cm:title property, we return that.  Otherwise, we extract the "filename" part
-	 * of the item's path, and use that.  TODO:  Better behavior for discussion posts would be to navigate
+	 * of the item's path, and use that.  Better behavior for discussion posts would be to navigate
 	 * up the node hierachy to the topic root and use the title of that, with something similar for document
 	 * comments
 	 */
@@ -541,10 +560,6 @@ public class GSANodePropertyServiceImpl implements GSANodePropertyService {
 		return label;
 	}
 	
-	/**
-	 * TODO: Split out from main body of getSecurityLabel method to aid testability - not what I usually like doing, maybe indicates we need to refactor
-	 * the getSecurityLabel method but I'm not sure right now
-	 */
 	protected String[] getNationalCaveats(NodeRef nodeRef)
 	{
 		String nationalityCaveats = getNationalCaveatsString(nodeRef);
