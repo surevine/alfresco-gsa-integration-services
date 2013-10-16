@@ -24,7 +24,7 @@
 	<groupId>com.surevine.alfresco</groupId>
 	<artifactId>gsa-connector</artifactId>
 	<packaging>jar</packaging>
-	<version>1.1.4</version>
+	<version>1.1.5-SNAPSHOT</version>
 	<name>gsa-connector</name>
 	<url>http://maven.apache.org</url>
 
@@ -37,7 +37,7 @@
 	<!-- Required by the release plugin -->
 	<scm>
 		<developerConnection>scm:git:git@github.com:surevine/alfresco-gsa-integration-services.git</developerConnection>
-	  <tag>gsa-connector-1.1.4</tag>
+	  <tag>HEAD</tag>
   </scm>
 
 	<dependencyManagement>
