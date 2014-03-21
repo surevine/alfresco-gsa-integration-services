@@ -655,7 +655,7 @@ public class GetAllItemsCommandImplTest {
 		natns.add("SV");
 		nps.setProfileNatn(natns);
 		nps.setProfileNod("SV");
-		nps.setProfilePM("NATO SECRET");
+		nps.setProfilePM("LEVEL1");
 		
 		_impl.setGSANodePropertyService(nps);
 		SearchResult result = _impl.getAllItems(new Date(0l), 10).getResults().iterator().next();
